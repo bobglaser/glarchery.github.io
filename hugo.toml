@@ -1,0 +1,30 @@
+baseURL = 'https://glarchery.github.io/'
+languageCode = 'en-us'
+title = 'Grand Ledge Archery'
+theme = 'basic'
+
+[params]
+  description = "Grand Ledge Archery Club — building champions through focus, discipline, and community."
+  tagline = "Aim High. Shoot True."
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Mission"
+    url = "/#mission"
+    weight = 2
+  [[menu.main]]
+    name = "Coaches"
+    url = "/coaches/"
+    weight = 3
+  [[menu.main]]
+    name = "Calendar"
+    url = "/calendar/"
+    weight = 4
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 5

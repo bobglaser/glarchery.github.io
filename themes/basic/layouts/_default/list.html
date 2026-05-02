@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ range .Pages }}
+    <div class="coach-bio">
+      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+      {{ if .Params.event_date }}
+        <p><strong>{{ .Params.event_date }}</strong> {{ if .Params.event_time }}at {{ .Params.event_time }}{{ end }}</p>
+      {{ end }}
+      {{ .Summary }}
+    </div>
+  {{ end }}
+{{ end }}

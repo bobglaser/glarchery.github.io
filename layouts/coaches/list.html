@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="page-header">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+    <h1>🎯 Our Coaching Team</h1>
+  </div>
+</div>
+<main>
+  <p style="font-size:1.05rem;color:#444;max-width:700px;">
+    Our certified coaches bring decades of competitive and instructional experience.
+    Whether you're picking up a bow for the first time or preparing for state competition,
+    our team is here to help you reach your goals.
+  </p>
+
+  <div class="coaches-grid">
+    {{ range sort .Pages "Params.weight" }}
+    <div class="coach-card">
+      <h3>{{ .Params.name | default .Title }}</h3>
+      <div class="role">{{ .Params.role | default "" }}</div>
+      {{ with .Params.certifications }}
+        <div style="margin-bottom:0.8rem;">
+          {{ range . }}<span class="cert-badge">{{ . }}</span>{{ end }}
+        </div>
+      {{ end }}
+      <p>{{ .Params.bio | default .Summary }}</p>
+      <div style="margin-top:1rem;">
+        <a href="{{ .RelPermalink }}" style="background:#00274C;color:#FFCB05;padding:0.4rem 1rem;border-radius:3px;text-decoration:none;font-size:0.85rem;font-family:Arial,sans-serif;font-weight:600;">
+          Full Bio →
+        </a>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

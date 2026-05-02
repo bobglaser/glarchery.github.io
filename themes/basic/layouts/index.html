@@ -1,0 +1,33 @@
+{{ define "main" }}
+  <div style="text-align: center; padding: 2rem 0; background: #ecf0f1; margin: -2rem -20px 2rem -20px;">
+    <h1 style="font-size: 3rem; margin: 0; color: #2c3e50;">{{ .Title }}</h1>
+    <p style="font-size: 1.2rem; color: #7f8c8d;">{{ site.Params.description }}</p>
+  </div>
+  
+  <div class="content">
+    {{ .Content }}
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0;">
+    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+      <h3 style="color: #2c3e50;">Upcoming Events</h3>
+      {{ range first 3 (where site.RegularPages "Section" "events") }}
+        <div style="margin: 1rem 0; padding: 1rem; background: white; border-radius: 5px;">
+          <h4><a href="{{ .RelPermalink }}" style="color: #3498db; text-decoration: none;">{{ .Title }}</a></h4>
+          {{ if .Params.event_date }}<p><strong>{{ .Params.event_date }}</strong></p>{{ end }}
+        </div>
+      {{ end }}
+      <p><a href="/events/" style="color: #3498db;">View all events →</a></p>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+      <h3 style="color: #2c3e50;">Meet Our Coaches</h3>
+      {{ range first 3 (where site.RegularPages "Section" "coaches") }}
+        <div style="margin: 1rem 0; padding: 1rem; background: white; border-radius: 5px;">
+          <h4><a href="{{ .RelPermalink }}" style="color: #3498db; text-decoration: none;">{{ .Title }}</a></h4>
+        </div>
+      {{ end }}
+      <p><a href="/coaches/" style="color: #3498db;">Meet all coaches →</a></p>
+    </div>
+  </div>
+{{ end }}

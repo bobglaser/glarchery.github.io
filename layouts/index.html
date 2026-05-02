@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="hero">
+  <h2>Grand Ledge Archery</h2>
+  <p>{{ site.Params.tagline }}</p>
+</div>
+
+<main>
+  <!-- Mission Statement -->
+  <section id="mission">
+    {{ .Content }}
+  </section>
+
+  <!-- Quick links -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem;margin-top:2.5rem;">
+    <a href="/coaches/" style="text-decoration:none;">
+      <div style="background:#00274C;color:#FFCB05;border-radius:4px;padding:1.5rem;text-align:center;border-bottom:4px solid #FFCB05;">
+        <div style="font-size:2rem;margin-bottom:0.5rem;">🎯</div>
+        <strong style="font-size:1rem;font-family:Arial,sans-serif;">Meet Our Coaches</strong>
+        <p style="color:#aac4e0;font-size:0.85rem;margin-top:0.4rem;">Expert instruction for all levels</p>
+      </div>
+    </a>
+    <a href="/calendar/" style="text-decoration:none;">
+      <div style="background:#00274C;color:#FFCB05;border-radius:4px;padding:1.5rem;text-align:center;border-bottom:4px solid #FFCB05;">
+        <div style="font-size:2rem;margin-bottom:0.5rem;">📅</div>
+        <strong style="font-size:1rem;font-family:Arial,sans-serif;">Events Calendar</strong>
+        <p style="color:#aac4e0;font-size:0.85rem;margin-top:0.4rem;">Practices, tournaments & more</p>
+      </div>
+    </a>
+    <a href="/contact/" style="text-decoration:none;">
+      <div style="background:#00274C;color:#FFCB05;border-radius:4px;padding:1.5rem;text-align:center;border-bottom:4px solid #FFCB05;">
+        <div style="font-size:2rem;margin-bottom:0.5rem;">📬</div>
+        <strong style="font-size:1rem;font-family:Arial,sans-serif;">Contact Us</strong>
+        <p style="color:#aac4e0;font-size:0.85rem;margin-top:0.4rem;">Get in touch with our team</p>
+      </div>
+    </a>
+  </div>
+</main>
+{{ end }}

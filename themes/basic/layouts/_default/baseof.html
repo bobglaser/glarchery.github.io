@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode site.Language.Lang }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background: #2c3e50; color: white; padding: 1rem 0; }
+    nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
+    nav li { margin-right: 2rem; }
+    nav a { color: white; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    main { padding: 2rem 0; min-height: 60vh; }
+    footer { background: #34495e; color: white; text-align: center; padding: 1rem 0; }
+    .event-meta { background: #ecf0f1; padding: 1rem; margin: 1rem 0; border-radius: 5px; }
+    .coach-bio { margin: 2rem 0; padding: 1rem; border-left: 4px solid #3498db; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="/" style="color: white; text-decoration: none;">{{ site.Title }}</a></h1>
+      <nav>
+        <ul>
+          {{ range site.Menus.main }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      {{ block "main" . }}{{ end }}
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; {{ now.Year }} {{ site.Title }}. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  {{ if .Params.event_date }}
+  <div class="event-meta">
+    <strong>Date:</strong> {{ .Params.event_date }}<br>
+    {{ if .Params.event_time }}<strong>Time:</strong> {{ .Params.event_time }}<br>{{ end }}
+    {{ if .Params.location }}<strong>Location:</strong> {{ .Params.location }}<br>{{ end }}
+    {{ if .Params.registration_deadline }}<strong>Registration Deadline:</strong> {{ .Params.registration_deadline }}{{ end }}
+  </div>
+  {{ end }}
+  <div class="content">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}
