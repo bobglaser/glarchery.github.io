@@ -1,1 +1,0 @@
-# glarchery.github.io
